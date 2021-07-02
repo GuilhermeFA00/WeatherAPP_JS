@@ -1,7 +1,7 @@
 //Criando o objeto "clima"
 let clima = {
     //Guardando chave de API
-    apiKey: "3889a9dd412b6dae854c90910fcd4332",
+    apiKey: "5fea8c812f4aa06484aaf8a1e96e9071",
     fetch_clima: function (local) {
         //"Buscando" a API
         fetch("http://api.openweathermap.org/data/2.5/weather?q=" +
@@ -23,20 +23,21 @@ let clima = {
     },
     //Criando a função para mostrar o clima na página de acordo com os dados   
     clima_screen: function (data) {
-        const { nome } = data;
-        const { icon, descri } = data.weather[0];
-        const { temp, hum } = data.main;
-        const { veloc } = data.wind;
+        //Criando as constantes de acordo com os dados da API
+        const { name } = data;
+        const { icon, description } = data.weather[0];
+        const { temp, humidity } = data.main;
+        const { speed } = data.wind;
 
         //Acessando os dados do cliente
-        document.querySelector(".local").innerText = "O clima em " + nome;
+        document.querySelector(".local").innerText = "O clima em " + name;
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
-        document.querySelector(".desc").innerText = descri;
+        document.querySelector(".desc").innerText = description;
         document.querySelector(".temp").innerText = temp + "°C" + " Graus";
-        document.querySelector(".hum").innerText = "A humidade é de" + hum + "%";
-        document.querySelector(".vento").innerText = "A velocidade do vento é de " + veloc + "KM/H";
+        document.querySelector(".hum").innerText = "A humidade é de" + humidity + "%";
+        document.querySelector(".vento").innerText = "A velocidade do vento é de " + speed + "KM/H";
         document.querySelector(".clima").classList.remove("loading");
-        document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + nome + "')";
+        document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')";
     },
     //Função para a busca
     busca: function () {
@@ -57,4 +58,4 @@ document.querySelector(".search-bar").addEventListener("keyup", function (evento
 });
 
 //Chamando a função principal
-clima.fetch_clima("São Paulo")
+clima.fetch_clima("Fortaleza")
