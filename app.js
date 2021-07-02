@@ -34,8 +34,8 @@ let clima = {
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
         document.querySelector(".desc").innerText = description;
         document.querySelector(".temp").innerText = temp + "°C" + " Graus";
-        document.querySelector(".hum").innerText = "A humidade é de" + humidity + "%";
-        document.querySelector(".vento").innerText = "A velocidade do vento é de " + speed + "KM/H";
+        document.querySelector(".hum").innerText = "A humidade é de " + humidity + " %";
+        document.querySelector(".vento").innerText = "A velocidade do vento é de " + speed + " KM/H";
         document.querySelector(".clima").classList.remove("loading");
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')";
     },
@@ -46,9 +46,9 @@ let clima = {
 };
 
 //Adicionando um evento após um clique na barra de busca
-document.querySelector(".search-bar").addEventListener("click", function () {
+document.querySelector(".buscar button").addEventListener("click", function () {
     clima.busca();
-})
+});
 
 //Adicionando outro evento caso haja um 'enter' na hora de pesquisar
 document.querySelector(".search-bar").addEventListener("keyup", function (evento) {
@@ -58,4 +58,4 @@ document.querySelector(".search-bar").addEventListener("keyup", function (evento
 });
 
 //Chamando a função principal
-clima.fetch_clima("Fortaleza")
+clima.fetch_clima("Fortaleza");

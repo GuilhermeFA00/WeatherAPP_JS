@@ -70,13 +70,13 @@ body {
     margin-left: 8px;
   }
   
-  .clima.dados {
+  .clima.loading {
     visibility: hidden;
     max-height: 20px;
     position: relative;
   }
   
-  .clima.dados:after {
+  .clima.loading:after {
     visibility: visible;
     content: "Dados carregando...";
     color: rgb(201, 204, 41);
